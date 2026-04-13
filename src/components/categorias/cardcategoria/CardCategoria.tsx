@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import type Categoria from "../../../models/Categoria";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 interface CardCategoriaProps {
     categoria: Categoria;
@@ -23,16 +24,16 @@ function CardCategoria({ categoria }: CardCategoriaProps) {
 
                 <button
                     onClick={() => navigate(`/editarCategoria/${categoria.id}`)}
-                    className="flex-1 bg-[#20925b] hover:bg-[#21bb70] text-white py-2 rounded-xl transition hover:scale-105"
+                    className="flex-1 flex bg-[#20925b] hover:bg-[#21bb70] text-white py-2 justify-center rounded-full transition hover:scale-105"
                 >
-                    ✏️ Editar
+                    <FaEdit size={22} /> Editar
                 </button>
 
                 <button
                     onClick={() => navigate(`/deletarCategoria/${categoria.id}`)}
-                    className="flex-1 hover:bg-red-600 py-2 rounded-xl transition hover:scale-105"
+                    className="flex-1 flex hover:bg-red-600 py-2 justify-center rounded-full transition hover:scale-105"
                 >
-                    🗑️ Deletar
+                    <FaTrash size={22} /> Deletar
                 </button>
 
             </div>

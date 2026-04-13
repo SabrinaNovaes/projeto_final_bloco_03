@@ -16,6 +16,7 @@ function BuscarCategoria() {
         try {
             setIsLoading(true);
             await buscar("/categorias", setCategorias);
+
         } catch (error) {
             console.log(error);
         } finally {
@@ -24,25 +25,31 @@ function BuscarCategoria() {
     }
 
     return (
-        <section className="min-h-screen px-8 py-10 bg-linear-to-br from-[#EAF4FF] to-white">
+        <>
+            {isLoading ? (
+                <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-[#EAF4FF] to-white">
+                    <div className="flex flex-col items-center gap-4">
+                        <div className="w-12 h-12 border-4 border-[#2BB673] border-t-transparent rounded-full animate-spin" />
+                        <p className="text-[#2BB673] font-medium animate-pulse">
+                            Carregando...
+                        </p>
+                    </div>
+                </div>
+            ) : (
+                <section className="min-h-screen px-8 py-10 bg-linear-to-br from-[#EAF4FF] to-white">
+                    <h1 className="text-4xl font-bold text-[#333] mb-8">
+                        Categorias
+                    </h1>
 
-            <h1 className="text-4xl font-bold text-[#333] mb-8">
-                Categorias
-            </h1>
-
-            {isLoading && (
-                <p className="text-gray-500">Carregando...</p>
+                    <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        {categorias.map((categoria) => (
+                            <CardCategoria key={categoria.id} categoria={categoria} />
+                        ))}
+                    </div>
+                </section>
             )}
-
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-
-                {categorias.map((categoria) => (
-                    <CardCategoria key={categoria.id} categoria={categoria} />
-                ))}
-
-            </div>
-        </section>
-    );
+        </>
+    )
 }
 
 export default BuscarCategoria;

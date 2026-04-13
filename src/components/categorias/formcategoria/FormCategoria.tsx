@@ -2,6 +2,7 @@ import { useEffect, useState, type ChangeEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { buscar, cadastrar, atualizar } from "../../../service/Service";
 import type Categoria from "../../../models/Categoria";
+import { ToastAlerta } from "../../../util/ToastAlerta";
 
 function FormCategoria() {
 
@@ -33,7 +34,7 @@ function FormCategoria() {
         }
     }
 
-    function atualizarEstado(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
         setCategoria({
             ...categoria,
             [e.target.name]: e.target.value
@@ -52,19 +53,19 @@ function FormCategoria() {
                 await cadastrar(`/categorias`, categoria, setCategoria);
             }
 
-            alert("Categoria salva com sucesso!");
+            ToastAlerta("Categoria salva com sucesso!", "sucesso");
             navigate("/categorias");
 
         } catch (error) {
             console.log(error);
-            alert("Erro ao salvar categoria");
+            ToastAlerta("Erro ao salvar categoria", "erro");
         } finally {
             setIsLoading(false);
         }
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-lineat-to-br from-[#EAF4FF] to-white px-4">
+        <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-[#EAF4FF] to-white px-4">
 
             <form
                 onSubmit={gerarNovaCategoria}

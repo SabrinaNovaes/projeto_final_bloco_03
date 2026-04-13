@@ -24,24 +24,24 @@ function Navbar() {
                 {menuOpen ? <RiCloseLine size={28} /> : <RiMenuLine size={28} />}
             </button>
 
-            <ul className="hidden md:flex gap-8 text-sm font-medium items-center">
+            <ul className="hidden md:flex gap-8 text-md font-medium items-center">
 
                 <li>
-                    <Link to="/home" className="flex title items-center gap-1 hover:text-green-800 transition">
+                    <Link to="/home" className="flex title items-center gap-1 hover:text-green-600 transition">
                         <RiHome2Line size={18} />
                         Home
                     </Link>
                 </li>
 
                 <li>
-                    <Link to="/categorias" className="flex title items-center gap-1 hover:text-green-800 transition">
+                    <Link to="/categorias" className="flex title items-center gap-1 hover:text-green-600 transition">
                         <RiLayoutGridLine size={18} />
                         Categorias
                     </Link>
                 </li>
 
                 <li>
-                    <Link to="/produtos" className="flex title items-center gap-1 hover:text-green-800 transition">
+                    <Link to="/produtos" className="flex title items-center gap-1 hover:text-green-600 transition">
                         <RiCapsuleLine size={18} />
                         Produtos
                     </Link>
