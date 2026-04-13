@@ -3,9 +3,9 @@ import logo from "../../assets/img/logo.png";
 
 export default function Footer() {
     return (
-        <footer className="bg-white mt-10 shadow-inner justify-center items-center text-center">
+        <footer className="bg-white mt-10 shadow-inner justify-center items-center text-center body">
 
-            <div className="h-0.5 w-full bg-linear-to-r from-[#2BB673] to-[#4A90E2]" />
+            <div className="h-0.5 w-full bg-linear-to-r from-[#2BB673] to-[#47ff9a]" />
 
             <div className="px-8 py-10 grid md:grid-cols-3 gap-8">
 
@@ -58,8 +58,9 @@ export default function Footer() {
                 </div>
             </div>
 
-            {/* COPYRIGHT */}
-            <div className="text-center text-gray-400 text-sm pb-6">
+            <div className="h-0.5 w-full bg-linear-to-r from-[#2BB673] to-[#47ff9a]" />
+
+            <div className="text-center text-gray-400 text-sm py-4">
                 © {new Date().getFullYear()} FarmaVida. Todos os direitos reservados.
             </div>
         </footer>

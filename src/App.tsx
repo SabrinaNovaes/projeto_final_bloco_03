@@ -6,14 +6,16 @@ import Home from "./pages/home/Home"
 function App() {
   return (
     <>
-      <Navbar />
-      <div className="min-h-full bg-linear-to-br from-[#6ED3A3]/30 to-[#4A90E2]/30 backdrop-blur-sm">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-        </Routes>
-      </div>
-      <Footer />
+      <BrowserRouter>
+        <Navbar />
+        <div className="min-h-full bg-linear-to-br from-[#6ED3A3]/30 to-[#4A90E2]/30 backdrop-blur-sm">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+          </Routes>
+        </div>
+        <Footer />
+      </BrowserRouter>
     </>
   )
 }
