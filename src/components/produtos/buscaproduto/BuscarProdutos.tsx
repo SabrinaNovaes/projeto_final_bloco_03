@@ -1,23 +1,22 @@
 import { useEffect, useState } from "react";
-import type Categoria from "../../../models/Categoria";
+import type Produto from "../../../models/Produtos";
 import { buscar } from "../../../service/Service";
-import CardCategoria from "../cardcategoria/CardCategoria";
+import CardProduto from "../cardproduto/CardProduto";
 import { motion } from "motion/react";
 
-function BuscarCategoria() {
+function BuscarProdutos() {
 
-    const [categorias, setCategorias] = useState<Categoria[]>([]);
+    const [produtos, setProdutos] = useState<Produto[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     useEffect(() => {
-        buscarCategorias();
-    }, []);
+        buscarProdutos();
+    }, [produtos.length]);
 
-    async function buscarCategorias() {
+    async function buscarProdutos() {
         try {
             setIsLoading(true);
-            await buscar("/categorias", setCategorias);
-
+            await buscar("/produtos", setProdutos);
         } catch (error) {
             console.log(error);
         } finally {
@@ -27,8 +26,9 @@ function BuscarCategoria() {
 
     return (
         <>
+
             {isLoading ? (
-                <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-[#EAF4FF] to-white">
+                <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#EAF4FF] to-white">
                     <div className="flex flex-col items-center gap-4">
                         <div className="w-12 h-12 border-4 border-[#2BB673] border-t-transparent rounded-full animate-spin" />
                         <p className="text-[#2BB673] font-medium animate-pulse">
@@ -43,13 +43,13 @@ function BuscarCategoria() {
                     transition={{ duration: 0.4, ease: "easeOut" }}
                     className="min-h-screen px-6 md:px-10 py-10 bg-linear-to-br from-[#EAF4FF] to-white"
                 >
-                    <h1 className="title text-4xl font-bold text-[#333] mb-8">
-                        Categorias
+                    <h1 className="title text-3xl md:text-4xl font-bold text-[#333] mb-8">
+                        Produtos
                     </h1>
 
-                    <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        {categorias.map((categoria) => (
-                            <CardCategoria key={categoria.id} categoria={categoria} />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        {produtos.map((prod) => (
+                            <CardProduto key={prod.id} produto={prod} />
                         ))}
                     </div>
                 </motion.section>
@@ -58,4 +58,4 @@ function BuscarCategoria() {
     )
 }
 
-export default BuscarCategoria;
+export default BuscarProdutos
