@@ -1,0 +1,43 @@
+import { useNavigate } from "react-router-dom";
+import type Categoria from "../../../models/Categoria";
+
+interface CardCategoriaProps {
+    categoria: Categoria;
+}
+
+function CardCategoria({ categoria }: CardCategoriaProps) {
+
+    const navigate = useNavigate();
+
+    return (
+        <div className="bg-[#F5F7FA] rounded-2xl p-6 shadow-md hover:shadow-lg transition flex flex-col justify-between">
+
+            {/* CONTEÚDO */}
+            <div>
+                <h2 className="text-lg font-semibold text-[#333] mb-2">
+                    {categoria.nome}
+                </h2>
+            </div>
+
+            <div className="mt-6 flex gap-3">
+
+                <button
+                    onClick={() => navigate(`/editarCategoria/${categoria.id}`)}
+                    className="flex-1 bg-[#20925b] hover:bg-[#21bb70] text-white py-2 rounded-xl transition hover:scale-105"
+                >
+                    ✏️ Editar
+                </button>
+
+                <button
+                    onClick={() => navigate(`/deletarCategoria/${categoria.id}`)}
+                    className="flex-1 hover:bg-red-600 py-2 rounded-xl transition hover:scale-105"
+                >
+                    🗑️ Deletar
+                </button>
+
+            </div>
+        </div>
+    );
+}
+
+export default CardCategoria;
