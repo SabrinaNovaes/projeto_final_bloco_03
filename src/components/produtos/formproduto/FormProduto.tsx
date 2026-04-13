@@ -13,7 +13,7 @@ function FormProduto() {
 
     const [categorias, setCategorias] = useState<Categoria[]>([]);
 
-    const [categoria, setCategoria] = useState<Categoria>({ id: 0, nome: "" });
+    const [categoria, setCategoria] = useState<Categoria>({ id: 0, nome: "", produto: null });
 
     const [produto, setProduto] = useState<Produto>({} as Produto);
 
@@ -69,7 +69,7 @@ function FormProduto() {
         }
     }, [produto.id]);  // ← depende só do id, não do objeto inteiro
 
-    function atualizarEstado(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
         setProduto({
             ...produto,
             [e.target.name]: e.target.value
