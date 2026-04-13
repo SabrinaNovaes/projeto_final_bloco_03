@@ -17,17 +17,17 @@ function CardProduto({ produto }: CardProdutoProps) {
                 <img
                     src={produto.foto}
                     alt={produto.nome}
-                    className="w-full h-40 object-cover rounded-xl mb-4"
+                    className="title w-full h-40 object-cover rounded-xl mb-4"
                 />
             )}
 
             <div>
-                <h2 className="text-lg font-semibold text-[#333] mb-2">
+                <h2 className="body text-lg font-semibold text-[#333] mb-2">
                     {produto.nome}
                 </h2>
 
                 {produto.categoria && (
-                    <span className="text-xs bg-[#EAF4FF] text-[#4A90E2] px-2 py-1 rounded-md">
+                    <span className="body text-xs bg-[#EAF4FF] text-[#4A90E2] px-2 py-1 rounded-md">
                         {produto.categoria.nome}
                     </span>
                 )}
@@ -35,7 +35,7 @@ function CardProduto({ produto }: CardProdutoProps) {
 
             <div className="mt-4 flex items-center justify-between gap-2">
 
-                <span className="text-[#2BB673] font-bold text-lg">
+                <span className="body text-[#2BB673] font-bold text-lg">
                     R$ {Number(produto.preco).toFixed(2)}
                 </span>
 

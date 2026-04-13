@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type Categoria from "../../../models/Categoria";
 import { buscar } from "../../../service/Service";
 import CardCategoria from "../cardcategoria/CardCategoria";
+import { motion } from "motion/react";
 
 function BuscarCategoria() {
 
@@ -36,8 +37,13 @@ function BuscarCategoria() {
                     </div>
                 </div>
             ) : (
-                <section className="min-h-screen px-8 py-10 bg-linear-to-br from-[#EAF4FF] to-white">
-                    <h1 className="text-4xl font-bold text-[#333] mb-8">
+                <motion.section
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="min-h-screen px-6 md:px-10 py-10 bg-linear-to-br from-[#EAF4FF] to-white"
+                >
+                    <h1 className="title text-4xl font-bold text-[#333] mb-8">
                         Categorias
                     </h1>
 
@@ -46,7 +52,7 @@ function BuscarCategoria() {
                             <CardCategoria key={categoria.id} categoria={categoria} />
                         ))}
                     </div>
-                </section>
+                </motion.section>
             )}
         </>
     )

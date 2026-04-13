@@ -15,7 +15,7 @@ function CardCategoria({ categoria }: CardCategoriaProps) {
 
             {/* CONTEÚDO */}
             <div>
-                <h2 className="text-lg font-semibold text-[#333] mb-2">
+                <h2 className="title text-lg font-semibold text-[#333] mb-2">
                     {categoria.nome}
                 </h2>
             </div>
@@ -24,14 +24,14 @@ function CardCategoria({ categoria }: CardCategoriaProps) {
 
                 <button
                     onClick={() => navigate(`/editarCategoria/${categoria.id}`)}
-                    className="flex-1 flex bg-[#20925b] hover:bg-[#21bb70] text-white py-2 justify-center rounded-full transition hover:scale-105"
+                    className="body flex-1 flex bg-[#20925b] hover:bg-[#21bb70] text-white py-2 justify-center rounded-full transition hover:scale-105"
                 >
                     <FaEdit size={22} /> Editar
                 </button>
 
                 <button
                     onClick={() => navigate(`/deletarCategoria/${categoria.id}`)}
-                    className="flex-1 flex hover:bg-red-600 py-2 justify-center rounded-full transition hover:scale-105"
+                    className="body flex-1 flex hover:bg-red-600 py-2 justify-center rounded-full transition hover:scale-105"
                 >
                     <FaTrash size={22} /> Deletar
                 </button>

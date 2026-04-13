@@ -57,7 +57,7 @@ function DeletarCategoria() {
 
             <div className="bg-white p-6 rounded-2xl shadow-md max-w-md w-full text-center">
 
-                <h2 className="text-xl font-bold text-[#333] mb-4">
+                <h2 className="title text-xl font-bold text-[#333] mb-4">
                     Confirmar exclusão
                 </h2>
 
@@ -65,7 +65,7 @@ function DeletarCategoria() {
                     Categoria:
                 </p>
 
-                <p className="font-semibold text-[#333] mb-6">
+                <p className="body font-semibold text-[#333] mb-6">
                     {categoria.nome}
                 </p>
 
@@ -73,7 +73,7 @@ function DeletarCategoria() {
 
                     <button
                         onClick={() => navigate(-1)}
-                        className="border border-gray-300 text-gray-600 px-4 py-2 rounded-xl hover:bg-gray-100 transition"
+                        className="body border border-gray-300 text-gray-600 px-4 py-2 rounded-xl hover:bg-gray-100 transition"
                     >
                         Cancelar
                     </button>
@@ -81,7 +81,7 @@ function DeletarCategoria() {
                     <button
                         onClick={deletarCategoria}
                         disabled={isLoading}
-                        className="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-xl transition hover:scale-105 disabled:opacity-50"
+                        className="body bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-xl transition hover:scale-105 disabled:opacity-50"
                     >
                         {isLoading ? "Deletando..." : "Deletar"}
                     </button>
