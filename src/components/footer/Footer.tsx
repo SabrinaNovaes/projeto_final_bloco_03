@@ -3,16 +3,16 @@ import logo from "../../assets/img/logo.png";
 
 export default function Footer() {
     return (
-        <footer className="bg-white mt-10 shadow-inner justify-center items-center text-center body">
+        <footer className="bg-white flex flex-col justify-center items-center text-center body px-6 md:px-10">
 
             <div className="h-0.5 w-full bg-linear-to-r from-[#2BB673] to-[#47ff9a]" />
 
-            <div className="px-8 py-10 grid md:grid-cols-3 gap-8">
+            <div className="w-full max-w-7xl px-4 md:px-8 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
 
-                <div>
+                <div className="flex flex-col items-center md:items-start">
                     <Link
                         to="/"
-                        className="flex items-center gap-3 text-[#2BB673] font-bold text-xl mb-4"
+                        className="title flex items-center gap-3 text-[#2BB673] font-bold text-xl mb-4"
                     >
                         <img
                             src={logo}
@@ -27,8 +27,8 @@ export default function Footer() {
                     </p>
                 </div>
 
-                <div>
-                    <h2 className="font-semibold text-[#333] mb-3">
+                <div className="flex flex-col items-center md:items-start">
+                    <h2 className="font-semibold title text-[#333] mb-3">
                         Navegação
                     </h2>
 
@@ -45,7 +45,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div>
+                <div className="flex flex-col items-center md:items-start">
                     <h2 className="font-semibold text-[#333] mb-3">
                         Contato
                     </h2>
@@ -56,13 +56,15 @@ export default function Footer() {
                         <p>✉️ contato@farmavida.com</p>
                     </div>
                 </div>
+
             </div>
 
             <div className="h-0.5 w-full bg-linear-to-r from-[#2BB673] to-[#47ff9a]" />
 
-            <div className="text-center text-gray-400 text-sm py-4">
+            <div className="text-center text-gray-400 text-sm py-4 px-4">
                 © {new Date().getFullYear()} FarmaVida. Todos os direitos reservados.
             </div>
+
         </footer>
     );
 }

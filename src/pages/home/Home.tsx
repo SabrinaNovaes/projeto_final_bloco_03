@@ -4,37 +4,48 @@ import imginicial from "../../assets/img/imginicial.png"
 function Home() {
     return (
         <>
-            <section 
-                className="min-w-full p-10 items-center justify-center px-35">
+            <section
+                className="w-full p-10 items-center justify-center px-35 md:px-35">
+
                 <article
-                    className="container grid grid-cols-1 md:grid-cols-2 py-6">
-                    <figure 
-                        className="flex justify-center items-center md:pb-0 order-first md:order-last">
+                    className="container grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+                    <figure
+                        className="flex justify-center items-center order-first md:order-last">
+
                         <motion.img
                             src={imginicial}
                             animate={{ y: [0, -10, 0] }}
                             transition={{ duration: 3, repeat: Infinity }}
                             alt="Imagem Página Home"
-                            className="rounded-full w-3/4 shadow-2xl shadow-green-500" />
+                            className="rounded-full w-2/3 md:w-3/4 shadow-2xl shadow-green-500"
+                        />
                     </figure>
-                    <div className="p-6 items-center text-start gap-4">
-                        <span className="title font-bold text-[#098f55] text-3xl p-12">
+
+                    <div className="flex flex-col items-start text-start gap-2 md:gap-4">
+
+                        <span className="title font-bold text-[#098f55] text-2xl md:text-3xl">
                             Sua
                         </span>
-                        <h1 className=" title text-5xl font-bold text-[#098f55] my-2">
+
+                        <h1 className="title text-3xl md:text-5xl font-bold text-[#098f55] my-1 md:my-2">
                             Farmácia online
                         </h1>
-                        <span className=" title font-bold text-[#098f55] text-4xl">
+
+                        <span className="title font-bold text-[#098f55] text-2xl md:text-4xl">
                             de Confiança
                         </span>
-                        <p className="body text-gray-500 my-5 text-xl">
+
+                        <p className="body text-gray-500 my-3 md:my-5 text-base md:text-xl">
                             Cuidando da sua saúde com praticidade
                         </p>
 
-                        <button className="bg-[#20925b] hover:bg-[#21bb70] text-white px-6 py-3 rounded-full transition hover:scale-105 shadow-sm shadow-green-500 hover:shadow-md hover-shadow-green-900">
+                        <button className="bg-[#20925b] hover:bg-[#21bb70] text-white px-5 md:px-6 py-2 md:py-3 rounded-full transition hover:scale-105 shadow-sm shadow-green-500 hover:shadow-md">
                             Ver produtos
                         </button>
+
                     </div>
+
                 </article>
             </section>
         </>
