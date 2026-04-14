@@ -8,7 +8,7 @@ function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <nav className="w-full bg-white shadow-md shadow-green-500/50 px-6 md:px-8 py-4 flex items-center justify-between">
+        <nav className="w-full bg-white shadow-md shadow-green-500/50 px-6 md:px-8 py-4 flex items-center justify-between relative">
 
             <Link to="/home" className="flex items-center gap-3">
                 <img src={logo} alt="FarmaVida" className="h-12 w-14 md:h-18 md:w-20 object-contain" />
@@ -24,7 +24,7 @@ function Navbar() {
                 {menuOpen ? <RiCloseLine size={28} /> : <RiMenuLine size={28} />}
             </button>
 
-            <ul className="hidden md:flex gap-8 text-md font-medium items-center">
+            <ul className="hidden md:flex gap-4 text-md font-medium items-center">
 
                 <li>
                     <Link to="/home" className="flex title items-center gap-1 hover:text-green-600 transition">
@@ -70,7 +70,7 @@ function Navbar() {
             </ul>
 
             {menuOpen && (
-                <div className="absolute top-20 left-0 w-full bg-white shadow-md flex flex-col items-center gap-6 py-6 md:hidden z-50">
+                <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center gap-6 py-6 md:hidden z-50">
 
                     <Link to="/home" onClick={() => setMenuOpen(false)} className="flex title items-center gap-2 hover:text-green-800">
                         <RiHome2Line size={20} />
@@ -112,4 +112,4 @@ function Navbar() {
     );
 }
 
-export default Navbar;
+export default Navbar

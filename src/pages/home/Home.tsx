@@ -3,34 +3,11 @@ import imginicial from "../../assets/img/imginicial.png"
 import BuscarProdutos from "../../components/produtos/buscaproduto/BuscarProdutos"
 import { Link } from "react-router-dom"
 import BuscarCategoria from "../../components/categorias/buscarcategoria/BuscarCategoria"
-import { useState } from "react"
 
 function Home() {
 
-    const [isLoading, setIsLoading] = useState<boolean>(false);
-
-    if (isLoading) {
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 3000);
-    }
-
     return (
         <>
-
-            {isLoading && (
-                <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-[#EAF4FF] to-white">
-                    <div className="flex flex-col items-center gap-4">
-
-                        {/* CIRCLE SPINNER */}
-                        <div className="w-12 h-12 border-4 border-[#2BB673] border-t-transparent rounded-full animate-spin"></div>
-
-                        <p className="text-[#2BB673] font-medium animate-pulse">
-                            Carregando...
-                        </p>
-
-                    </div>
-                </div>)}
             <section className="w-full p-10 items-center justify-center px-10 md:px-10 from-[#6ED3A3]/30 to-[#4A90E2]/30 backdrop-blur-sm">
 
                 <article className="container grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
@@ -68,20 +45,20 @@ function Home() {
 
                         <Link
                             to="/produtos"
-                            type="button"
                             aria-label="Ver todos os produtos da farmácia"
                             className="bg-[#20925b] hover:bg-[#21bb70]
-                    text-white px-5 md:px-6 py-2 md:py-3 rounded-full transition 
-                    hover:scale-105 shadow-sm shadow-green-500 hover:shadow-md"
+                            text-white px-5 md:px-6 py-2 md:py-3 rounded-full transition 
+                            hover:scale-105 shadow-sm shadow-green-500 hover:shadow-md"
                         >
                             Ver produtos
                         </Link>
                     </div>
                 </article>
             </section>
-            <BuscarProdutos />
-            <div className="h-0.5 w-full bg-linear-to-r from-transparent via-[#2BB673] to-trasnparent" />
-            <BuscarCategoria />
+
+            <BuscarProdutos hideActions />
+            <div className="h-0.5 w-full bg-linear-to-r from-transparent via-[#2BB673] to-transparent" />
+            <BuscarCategoria hideActions />
         </>
     )
 }

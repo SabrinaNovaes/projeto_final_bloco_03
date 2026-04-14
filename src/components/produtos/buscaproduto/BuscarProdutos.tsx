@@ -4,7 +4,11 @@ import { buscar } from "../../../service/Service";
 import CardProduto from "../cardproduto/CardProduto";
 import { motion } from "motion/react";
 
-function BuscarProdutos() {
+interface BuscarProdutosProps {
+    hideActions?: boolean;
+}
+
+function BuscarProdutos({ hideActions }: BuscarProdutosProps) {
 
     const [produtos, setProdutos] = useState<Produto[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -26,9 +30,8 @@ function BuscarProdutos() {
 
     return (
         <>
-
             {isLoading ? (
-                <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#EAF4FF] to-white">
+                <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-[#EAF4FF] to-white">
                     <div className="flex flex-col items-center gap-4">
                         <div className="w-12 h-12 border-4 border-[#2BB673] border-t-transparent rounded-full animate-spin" />
                         <p className="text-[#2BB673] font-medium animate-pulse">
@@ -48,8 +51,8 @@ function BuscarProdutos() {
                     </h1>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        {produtos.map((prod) => (
-                            <CardProduto key={prod.id} produto={prod} />
+                        {produtos.map((produto) => (
+                            <CardProduto key={produto.id} produto={produto} hideActions={hideActions} />
                         ))}
                     </div>
                 </motion.section>
@@ -58,4 +61,4 @@ function BuscarProdutos() {
     )
 }
 
-export default BuscarProdutos
+export default BuscarProdutos;

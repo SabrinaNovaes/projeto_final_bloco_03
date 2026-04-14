@@ -4,7 +4,11 @@ import { buscar } from "../../../service/Service";
 import CardCategoria from "../cardcategoria/CardCategoria";
 import { motion } from "motion/react";
 
-function BuscarCategoria() {
+interface BuscarCategoriaProps {
+    hideActions?: boolean;
+}
+
+function BuscarCategoria({ hideActions }: BuscarCategoriaProps) {
 
     const [categorias, setCategorias] = useState<Categoria[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -49,7 +53,7 @@ function BuscarCategoria() {
 
                     <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                         {categorias.map((categoria) => (
-                            <CardCategoria key={categoria.id} categoria={categoria} />
+                            <CardCategoria key={categoria.id} categoria={categoria} hideActions={hideActions} />
                         ))}
                     </div>
                 </motion.section>
@@ -58,4 +62,4 @@ function BuscarCategoria() {
     )
 }
 
-export default BuscarCategoria;
+export default BuscarCategoria

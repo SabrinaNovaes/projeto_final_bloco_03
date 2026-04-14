@@ -4,9 +4,10 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 
 interface CardProdutoProps {
     produto: Produto;
+    hideActions?: boolean;
 }
 
-function CardProduto({ produto }: CardProdutoProps) {
+function CardProduto({ produto, hideActions }: CardProdutoProps) {
 
     const navigate = useNavigate();
 
@@ -39,23 +40,25 @@ function CardProduto({ produto }: CardProdutoProps) {
                     R$ {Number(produto.preco).toFixed(2)}
                 </span>
 
-                <div className="flex gap-2">
+                {!hideActions && (
+                    <div className="flex gap-2">
 
-                    <button
-                        onClick={() => navigate(`/editarProduto/${produto.id}`)}
-                        className=" bg-[#20925b] hover:bg-[#21bb70] text-white px-3 py-1 rounded-full transition hover:scale-105"
-                    >
-                        <FaEdit size={20} />
-                    </button>
+                        <button
+                            onClick={() => navigate(`/editarProduto/${produto.id}`)}
+                            className="bg-[#20925b] hover:bg-[#21bb70] text-white px-3 py-1 rounded-full transition hover:scale-105"
+                        >
+                            <FaEdit size={20} />
+                        </button>
 
-                    <button
-                        onClick={() => navigate(`/deletarProduto/${produto.id}`)}
-                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-full transition hover:scale-105"
-                    >
-                        <FaTrash size={20} />
-                    </button>
+                        <button
+                            onClick={() => navigate(`/deletarProduto/${produto.id}`)}
+                            className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-full transition hover:scale-105"
+                        >
+                            <FaTrash size={20} />
+                        </button>
 
-                </div>
+                    </div>
+                )}
             </div>
 
         </div>
